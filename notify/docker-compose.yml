@@ -1,0 +1,20 @@
+version: '3.5'
+
+services:
+  trash-date-notifier:
+    build: .
+    restart: on-failure
+    # depends_on:
+    #   - mongo
+    environment:
+      MONGO_URI: mongodb://mongo:27017/
+    env_file: .env
+    tty: true
+
+  # mongo:
+  #   image: mongo:5.0.7
+  #   restart: unless-stopped
+  #   ports:
+  #     - 27017:27017
+  #   volumes:
+  #     - ../data/mongo:/data/db
